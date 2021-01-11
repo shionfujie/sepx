@@ -1,7 +1,7 @@
 {
 	"name": "sepx",
 	"description": "",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"manifest_version": 2,
 	"icons": {
 		"16": "images/get_started16.png",
