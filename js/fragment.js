@@ -73,7 +73,7 @@ function textMathSymbolsEscaped(el) {
                 .replace(/\s{2,}/g, " ")
         }
     })
-    return result
+    return result.replace(/(\s+|\n)(?=[.])/g, "")
 }
 
 function teardown() {
