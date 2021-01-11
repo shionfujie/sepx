@@ -30,13 +30,15 @@ function decorate(ev) {
 }
 
 function takeFirstSentence(ev) {
-    const sentence = sentences(textMathSymbolsEscaped(ev.currentTarget))[0]
+    const el = ev.currentTarget
+    const text = textMathSymbolsEscaped(el)
+    const clip = el.tagName === "BLOCKQUOTE" ? text : sentences(text)[0]
     ev.stopPropagation()
     if (navigator.clipboard === undefined) {
-        console.debug("takeFirstSentence: clip: ", sentence)
+        console.debug("takeFirstSentence: clip: ", clip)
         console.debug("takeFirstSentence: navigator.clipboard is not available")
     } else {
-        navigator.clipboard.writeText(sentence);
+        navigator.clipboard.writeText(clip);
     }
     teardown()
 }
