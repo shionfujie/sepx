@@ -42,18 +42,20 @@ function textMathSymbolsEscaped(el) {
     var result = ""
     el.childNodes.forEach(n => {
         if (n.nodeType === Node.ELEMENT_NODE) {
-            switch(n.className) {
+            switch (n.className) {
                 case "MathJax_Preview":
                 case "MathJax":
                     result += "";
                     return
             }
             if (n.type === "math/tex") {
-                result += " $" + n.textContent.trim() 
-                return 
+                result += " $" + n.textContent.trim()
+                return
             }
         } else {
-            result += " " + n.textContent.trim() 
+            result += " " + n.textContent.trim()
+                .replace(/\n/g, " ")
+                .replace(/\s{2,}/g, " ")
         }
     })
     return result
