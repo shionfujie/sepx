@@ -11,5 +11,10 @@
 	},
 	"permissions": [],
 	"content_scripts": [],
-	"background": {}
+	"background": {
+		"scripts": [
+			"js/background.js"
+		],
+		"persistent": false
+	}
 }
