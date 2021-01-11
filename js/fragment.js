@@ -30,7 +30,11 @@ function decorate(ev) {
 }
 
 function takeFirstSentence(ev) {
-    const el = ev.currentTarget
+    var el = ev.currentTarget
+    if (el.tagName === "P" && el.parent.tagName === "BLOCKQUOTE") {
+        el = el.parent
+    }
+
     const text = textMathSymbolsEscaped(el)
     const clip = el.tagName === "BLOCKQUOTE" ? text : sentences(text)[0]
     ev.stopPropagation()
