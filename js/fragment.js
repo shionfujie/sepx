@@ -6,9 +6,16 @@ function setup() {
 
 var capturing = undefined
 function addListeners() {
-    for (const el of document.querySelectorAll("p,div")) {
+    for (const el of document.querySelectorAll("p,div,blockquote")) {
         el.addEventListener("mouseover", decorate)
         el.addEventListener("click", takeFirstSentence)
+    }
+}
+
+function removeListeners() {
+    for (const el of document.querySelectorAll("p,div,blockquote")) {
+        el.removeEventListener("mouseover", decorate);
+        el.removeEventListener("click", takeFirstSentence)
     }
 }
 
@@ -52,6 +59,7 @@ function textMathSymbolsEscaped(el) {
                 result += " $" + n.textContent.trim()
                 return
             }
+            result += " " + n.textContent.trim()
         } else {
             result += " " + n.textContent.trim()
                 .replace(/\n/g, " ")
@@ -66,12 +74,4 @@ function teardown() {
         capturing.style["background"] = ""
     }
     removeListeners()
-}
-
-
-function removeListeners() {
-    for (const el of document.querySelectorAll("p,div")) {
-        el.removeEventListener("mouseover", decorate);
-        el.removeEventListener("click", takeFirstSentence)
-    }
 }
