@@ -58,6 +58,7 @@ function textMathSymbolsEscaped(el) {
             switch (n.className) {
                 case "MathJax_Preview":
                 case "MathJax":
+                case "mjx-chtml MathJax_CHTML":
                     result += "";
                     return
             }
