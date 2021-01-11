@@ -36,6 +36,5 @@ const actionSpec = {
 };
 
 function injectFragmentExtractor() {
-// chrome.tabs.executeScript({ file: "/js/fragment.js" })
-    console.debug("Hello, SEPX")
+chrome.tabs.executeScript({ file: "/js/fragment.js" })
 }
