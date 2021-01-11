@@ -31,8 +31,8 @@ function decorate(ev) {
 
 function takeFirstSentence(ev) {
     var el = ev.currentTarget
-    if (el.tagName === "P" && el.parent.tagName === "BLOCKQUOTE") {
-        el = el.parent
+    if (el.tagName === "P" && el.parentElement.tagName === "BLOCKQUOTE") {
+        el = el.parentElement
     }
 
     const text = textMathSymbolsEscaped(el)
